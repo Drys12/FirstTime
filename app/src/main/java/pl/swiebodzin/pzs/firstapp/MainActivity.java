@@ -2,6 +2,7 @@ package pl.swiebodzin.pzs.firstapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     int a,b,sum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("life","onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         clickButton =findViewById(R.id.clickButton);
         clearButton =findViewById(R.id.clearButton);
         textsum =findViewById(R.id.textsum);
+
 
 
 
@@ -46,10 +50,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+     clearButton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+
+             clear();
+         }
+         });
 
     }
+
+
     public int getSum(int number1, int number2) {
         return number1 + number2;
     }
 
+    public void clear() {
+        textsum.setText("");
+        firstNumber.setText("");
+        last.setText("");
+    }
+
+
 }
+
